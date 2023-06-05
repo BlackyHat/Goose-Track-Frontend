@@ -3,8 +3,11 @@ import scss from './UserPopup.module.scss';
 import { Link } from 'react-router-dom';
 import { ReactComponent as UserCheckSvg } from '../../../images/icons/user-check-01.svg';
 import { ReactComponent as LoginOutSvg } from '../../../images/icons/log-out.svg';
+import { useTranslation } from 'react-i18next';
 
 const UserPopup = ({ userName, onClose, handleLogout }) => {
+  const { t } = useTranslation();
+
   return (
     <>
       <div className={scss.container}>
@@ -14,10 +17,10 @@ const UserPopup = ({ userName, onClose, handleLogout }) => {
         </div>
         <Link className={scss.account} to="/account" onClick={onClose}>
           <UserCheckSvg />
-          My account
+          {t('navigation.My account')}
         </Link>
         <button className={scss.logOut} onClick={handleLogout}>
-          Log out
+          {t('Log out')}
           <LoginOutSvg />
         </button>
       </div>

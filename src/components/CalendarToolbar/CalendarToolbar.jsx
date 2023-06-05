@@ -9,9 +9,11 @@ import {
 } from 'components/utils/dateChanger';
 import PeriodTypeSelect from 'components/PeriodTypeSelect/PeriodTypeSelect';
 import PeriodPaginator from 'components/PeriodPaginator/PeriodPaginator';
+import { useTranslation } from 'react-i18next';
 
 const CalendarToolbar = ({ period, date }) => {
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const currentDate = moment(date);
 
@@ -43,15 +45,16 @@ const CalendarToolbar = ({ period, date }) => {
       navigate(`/calendar/month/${currentDate.format('YYYY-MM')}`);
     }
   };
-
   return (
     <div className={css.caledr_header_wrapper}>
       <div className={css.caledr_wrapper_month_prev_next}>
         <div className={css.caledr_month_title_wrap}>
           <span className={css.caledr_month_title}>
             {period
-              ? `${currentDate.format('MMMM YYYY')}`
-              : `${currentDate.format('D MMMM YYYY')}`}
+              ? `${t(currentDate.format('MMMM'))} ${currentDate.format('YYYY')}`
+              : `${currentDate.format('D')} ${t(
+                  currentDate.format('MMMM')
+                )} ${currentDate.format('YYYY')}`}
           </span>
         </div>
         <PeriodPaginator

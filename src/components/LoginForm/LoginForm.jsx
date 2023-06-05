@@ -1,5 +1,6 @@
 import { Link, useNavigate } from 'react-router-dom';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { useTranslation } from 'react-i18next';
 
 import { useDispatch } from 'react-redux';
 import { Notify } from 'notiflix';
@@ -12,6 +13,7 @@ import { BsEyeFill } from 'react-icons/bs';
 import { useState } from 'react';
 import { spriteIcons } from 'images/icons';
 import ThemeToggler from 'components/ThemeToggler/ThemeToggler';
+import LangSwitcher from 'components/LangSwitcher/LangSwitcher';
 
 const initialState = {
   email: '',
@@ -21,6 +23,7 @@ const initialState = {
 const LoginForm = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const { t } = useTranslation();
 
   const [type, setType] = useState('password');
   const [icon, setIcon] = useState(<BsEyeSlashFill />);
@@ -51,8 +54,8 @@ const LoginForm = () => {
       <div className={scss.bgimages}></div>
       <div className={scss.bgImagesMsg}>
         <p className={scss.bgImagesText}>
-          Quickly <span className={scss.span}>come in</span> and write down your
-          tasks for the day!
+          {t('Quickly')} <span className={scss.span}>{t('come in')} </span>
+          {t('and write down your tasks for the day!')}
         </p>
       </div>
       <Formik
@@ -64,8 +67,11 @@ const LoginForm = () => {
         {({ errors, touched, resetForm }) => (
           <Form className={scss.form}>
             <div className={scss.titleWrapper}>
-              <h1 className={scss.title}>Log In</h1>
-              <ThemeToggler />
+              <h1 className={scss.title}>{t('Log In')}</h1>
+              <div className={scss.togglersContainer}>
+                <LangSwitcher />
+                <ThemeToggler />
+              </div>
             </div>
             <label
               className={
@@ -76,13 +82,13 @@ const LoginForm = () => {
                   : scss.label
               }
             >
-              <p className={scss.labelText}>Email</p>
+              <p className={scss.labelText}>{t('Email')}</p>
               <Field
                 id="email"
                 name="email"
                 autoComplete="off"
                 type="email"
-                placeholder="Enter email"
+                placeholder={t('Enter email')}
                 className={
                   errors.email && touched.email
                     ? scss.isInvalid
@@ -94,7 +100,7 @@ const LoginForm = () => {
               <div className={scss.feedback}>
                 {touched.email && !errors.email ? (
                   <div className={scss.validFeedback}>
-                    This is an CORRECT email
+                    {t('Email is correct')}
                     <svg className={scss.iconCorrect}>
                       <use href={spriteIcons + '#icon-check'}></use>
                     </svg>
@@ -121,13 +127,13 @@ const LoginForm = () => {
                   : scss.label
               }
             >
-              <p className={scss.labelText}>Password</p>
+              <p className={scss.labelText}>{t('Password')}</p>
               <Field
                 id="password"
                 name="password"
                 autoComplete="off"
                 type={type}
-                placeholder="Enter password"
+                placeholder={t('Enter password')}
                 className={
                   errors.password && touched.password
                     ? scss.isInvalid
@@ -146,7 +152,7 @@ const LoginForm = () => {
               <div className={scss.feedback}>
                 {touched.password && !errors.password ? (
                   <div className={scss.validFeedback}>
-                    This is an CORRECT password
+                    {t('Password is correct')}
                   </div>
                 ) : null}
                 <ErrorMessage
@@ -157,14 +163,14 @@ const LoginForm = () => {
               </div>
             </label>
             <button className={scss.button} type="submit">
-              Log in
+              {t('Log In')}
               <FiLogIn className={scss.icon} />
             </button>
           </Form>
         )}
       </Formik>
       <Link className={scss.link} to="/register">
-        Sign up
+        {t('Sign Up')}
       </Link>
     </div>
   );

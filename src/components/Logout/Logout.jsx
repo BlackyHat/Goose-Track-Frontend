@@ -2,9 +2,11 @@ import { useDispatch } from 'react-redux';
 import { authLogoutThunk } from 'redux/user/user-operations';
 import { Link } from 'react-router-dom';
 import scss from './Logout.module.scss';
+import { useTranslation } from 'react-i18next';
 
 const Logout = ({ onClose }) => {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
 
   const handleLogout = () => {
     dispatch(authLogoutThunk());
@@ -12,16 +14,16 @@ const Logout = ({ onClose }) => {
 
   return (
     <>
-      <h2 className={scss.buttonMeta}>Are you sure to logout?</h2>
+      <h2 className={scss.buttonMeta}>{t('Are you sure to logout?')}</h2>
       <ul className={scss.buttonBox}>
         <li>
           <Link to={`/welcome`} className={scss.button} onClick={handleLogout}>
-            Log Out
+            {t('Log out')}
           </Link>
         </li>
         <li>
           <button className={scss.button} onClick={onClose}>
-            Cansel
+            {t('Canсel')}
           </button>
         </li>
       </ul>

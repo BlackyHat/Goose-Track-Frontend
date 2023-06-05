@@ -1,4 +1,5 @@
 import { NavLink } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 import classNames from 'classnames';
 import { ReactComponent as LoginOutSvg } from 'images/icons/log-out.svg';
@@ -10,6 +11,8 @@ import Modal from 'components/Modal/Modal';
 import Logout from 'components/Logout/Logout';
 
 const Navigation = ({ onCloseMenu }) => {
+  const { t } = useTranslation();
+
   const { isOpen, onOpen, onClose } = useToggle();
 
   const closeMobileMenu = () => {
@@ -23,7 +26,7 @@ const Navigation = ({ onCloseMenu }) => {
   return (
     <div className={css.container}>
       <div className={css.userPanel}>
-        <p className={css.navLabel}>User Panel</p>
+        <p className={css.navLabel}>{t('User Panel')}</p>
         <NavLink
           to="/account"
           onClick={closeMobileMenu}
@@ -32,7 +35,7 @@ const Navigation = ({ onCloseMenu }) => {
           }
         >
           <FiUserCheck />
-          My account
+          {t('navigation.My account')}
         </NavLink>
         <NavLink
           onClick={closeMobileMenu}
@@ -42,7 +45,7 @@ const Navigation = ({ onCloseMenu }) => {
           }
         >
           <BsCalendar4 />
-          Calendar
+          {t('navigation.Calendar')}
         </NavLink>
         <NavLink
           onClick={closeMobileMenu}
@@ -52,11 +55,11 @@ const Navigation = ({ onCloseMenu }) => {
           }
         >
           <BsListStars />
-          Canban
+          {t('navigation.Canban')}
         </NavLink>
       </div>
       <button onClick={onLogout} className={classNames(css.button)}>
-        Log out
+        {t('Log out')}
         <LoginOutSvg />
       </button>
       {isOpen && (

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-
+import { useTranslation } from 'react-i18next';
 import { useSelector, useDispatch } from 'react-redux';
 import { selectorGetUser } from '../../redux/user/selectors';
 import { updateUserProfile } from '../../redux/user/user-operations';
@@ -15,11 +15,12 @@ import { Notify } from 'notiflix';
 import { userInfoKeys } from 'constants/userInfo.constants';
 
 const UserForm = () => {
+  const { t } = useTranslation();
+
   const dispatch = useDispatch();
   const userInfo = useSelector(selectorGetUser);
   const [previewImageUrl, setPreviewImageUrl] = useState(null);
   const [file, setFile] = useState(null);
-
   let initialUserInfo = {
     phone: userInfo.phone || '',
     telegram: userInfo.telegram || '',
@@ -100,16 +101,16 @@ const UserForm = () => {
                   ></label>
                 </div>
                 <h3 className={`${css.user_page__name}`}>
-                  {userInfo.userName || 'Username'}
+                  {userInfo.userName || t('Username')}
                 </h3>
-                <p className={`${css.user_page__role}`}>User</p>
+                <p className={`${css.user_page__role}`}>{t('User')}</p>
               </div>
               <div className={`${css.username_form}`}>
                 <label
                   htmlFor="userName"
                   className={`${css.username_form__label}`}
                 >
-                  Username
+                  {t('Username')}
                   <Field
                     name="userName"
                     type="text"
@@ -119,7 +120,7 @@ const UserForm = () => {
                         ? css.is_invalid
                         : '')
                     }
-                    placeholder="User name"
+                    placeholder={t('User name')}
                   />
                   <ErrorMessage
                     name="userName"
@@ -132,7 +133,7 @@ const UserForm = () => {
                   htmlFor="birthday"
                   className={`${css.username_form__label}`}
                 >
-                  Birthday:
+                  {t('Birthday')}:
                   <MyDatePicker
                     name="birthday"
                     birthday={formik.values.birthday}
@@ -149,7 +150,7 @@ const UserForm = () => {
                   htmlFor="email"
                   className={`${css.username_form__label}`}
                 >
-                  Email Address
+                  {t('Email Address')}
                   <Field
                     name="email"
                     type="email"
@@ -165,13 +166,13 @@ const UserForm = () => {
                   htmlFor="phone"
                   className={`${css.username_form__label}`}
                 >
-                  Phone:
+                  {t('Phone')}:
                   <Field
                     className={`${css.username_form_input}`}
                     id="phone"
                     name="phone"
                     type="text"
-                    placeholder="Enter your phone"
+                    placeholder={t('Enter your phone')}
                   />
                   <ErrorMessage
                     name="phone"
@@ -184,13 +185,13 @@ const UserForm = () => {
                   htmlFor="telegram"
                   className={`${css.username_form__label}`}
                 >
-                  Telegram:
+                  {t('Telegram')}:
                   <Field
                     className={`${css.username_form_input}`}
                     id="telegram"
                     name="telegram"
                     type="text"
-                    placeholder="Enter your Telegram link"
+                    placeholder={t('Enter your Telegram link')}
                   />
                   <ErrorMessage
                     name="telegram"
@@ -205,7 +206,7 @@ const UserForm = () => {
                     formik.isSubmitting || !formik.touched || !formik.dirty
                   }
                 >
-                  Save Changes
+                  {t('Save сhanges')}
                 </button>
               </div>
             </Form>

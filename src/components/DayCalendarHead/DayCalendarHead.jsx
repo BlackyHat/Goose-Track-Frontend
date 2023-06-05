@@ -4,11 +4,13 @@ import moment from 'moment/moment';
 import classNames from 'classnames';
 import scss from './DayCalendarHead.module.scss';
 import { newWeek, isCurrentDay, isCurrentChosedDay } from 'components/utils';
+import { useTranslation } from 'react-i18next';
 
 const DayCalendarHead = ({ currentDay }) => {
   const chosedDay = moment(currentDay);
   const week = newWeek(chosedDay);
   const [windowSize, setWindowSize] = useState(window.innerWidth);
+  const { t } = useTranslation();
 
   useEffect(() => {
     function handleResize() {
@@ -18,7 +20,6 @@ const DayCalendarHead = ({ currentDay }) => {
     window.addEventListener('resize', handleResize);
     return () => window.removeEventListener('resize', handleResize);
   }, []);
-
   return (
     <div className={classNames([scss.days_wrapper, scss.days_wrapp])}>
       {week.map((day, i) => {
@@ -36,8 +37,8 @@ const DayCalendarHead = ({ currentDay }) => {
           >
             <div className={scss.days}>
               {windowSize < 768
-                ? `${day.format('ddd').charAt(0)}`
-                : `${day.format('ddd')}`}
+                ? t(day.format('ddd').toUpperCase()).charAt(0)
+                : t(day.format('ddd').toUpperCase())}
             </div>
             <div
               className={classNames([

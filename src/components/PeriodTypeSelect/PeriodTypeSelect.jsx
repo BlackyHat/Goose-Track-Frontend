@@ -1,6 +1,9 @@
 import scss from './PeriodTypeSelect.module.scss';
+import { useTranslation } from 'react-i18next';
 
-const PeriodTypeSelect = ({ periodTypeSelect, currentDate, period }) => {
+const PeriodTypeSelect = ({ periodTypeSelect, period }) => {
+  const { t } = useTranslation();
+
   return (
     <div className={scss.caledr_header_wrapper_btn}>
       <button
@@ -10,7 +13,7 @@ const PeriodTypeSelect = ({ periodTypeSelect, currentDate, period }) => {
                 ${period && scss.active}`}
         onClick={() => periodTypeSelect('M')}
       >
-        Month
+        {t('Month')}
       </button>
 
       <button
@@ -21,7 +24,7 @@ const PeriodTypeSelect = ({ periodTypeSelect, currentDate, period }) => {
                         ${!period && scss.active}`}
         onClick={() => periodTypeSelect('D')}
       >
-        Day
+        {t('Day')}
       </button>
     </div>
   );

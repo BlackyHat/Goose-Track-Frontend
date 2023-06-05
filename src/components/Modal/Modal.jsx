@@ -22,7 +22,13 @@ import { MdClose } from 'react-icons/md';
  * </Modal>}
  */
 
-const Modal = ({ onClose, notStyled = false, position = null, children }) => {
+const Modal = ({
+  onClose,
+  notStyled = false,
+  position = null,
+  noBg = false,
+  children,
+}) => {
   useEffect(() => {
     const handleKeyDown = e => {
       if (e.key === 'Escape') {
@@ -58,6 +64,7 @@ const Modal = ({ onClose, notStyled = false, position = null, children }) => {
         style={{
           ...(position && { top: position.top, left: position.left }),
           ...(notStyled && { padding: 0 }),
+          ...(noBg && { backgroundColor: 'transparent' }),
         }}
       >
         {!notStyled && (

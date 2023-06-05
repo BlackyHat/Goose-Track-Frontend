@@ -1,0 +1,233 @@
+{"navigation": {
+"Login": "Accedi",
+"Registration": "Registrazione",
+"My account": "Il mio account",
+"Calendar": "Calendario",
+"Sign up": "Iscriviti",
+"Canban": "Kanban"
+},
+
+"Search": "Cerca",
+
+"Password": "Password",
+
+"Login": "Accedi",
+
+"Log In": "Accedi",
+
+"Sign Up": "Iscriviti",
+
+"Email": "Email",
+
+"Email Address": "Indirizzo email",
+
+"Confirm Password": "Conferma password",
+
+"Username": "Nome utente",
+
+"City, Region": "Città, Regione",
+
+"Mobile Phone": "Telefono cellulare",
+
+"Registration": "Registrazione",
+
+"Back": "Indietro",
+
+"Don't have an account": "Non hai un account",
+
+"Register": "Registrati",
+
+"Already have an account": "Hai già un account",
+
+"Time": "Orario",
+
+"Address": "Indirizzo",
+
+"Phone": "Telefono",
+
+"Enter a valid Email": "Inserisci un indirizzo email valido",
+
+"Email is correct": "L'email è corretta",
+
+"Enter a valid Password": "Inserisci una password valida (almeno 7 caratteri)",
+
+"Password is correct": "La password è corretta",
+
+"confirmPassword is correct": "La conferma della password è corretta",
+
+"confirmPassword is not correct": "La conferma della password non corrisponde",
+
+"Enter your name pls": "Inserisci il tuo nome",
+
+"Enter your name": "Inserisci il tuo nome",
+
+"Enter your email": "Inserisci la tua email",
+
+"Enter your password": "Inserisci la tua password",
+
+"Enter your phone": "Inserisci il tuo numero di telefono",
+
+"Enter your Telegram link": "Inserisci il tuo link Telegram",
+
+"Name is valid": "Il nome è valido",
+
+"Enter your city pls": "Inserisci la tua città",
+
+"City is valid": "La città è valida",
+
+"Enter your phone pls": "Inserisci il tuo numero di telefono",
+
+"Phone is valid": "Il numero di telefono è valido",
+
+"Calendar": "Calendario",
+
+"Telegram": "Telegram",
+
+"Sidebar": "Barra laterale"
+,
+"All in": "Tutto in",
+
+"Log Out": "Esci",
+
+"Log out": "Esci",
+
+"User Panel": "Pannello utente",
+
+"User Profile": "Profilo utente",
+
+"Today": "Oggi",
+
+"Month": "Mese",
+
+"Day": "Giorno"
+,
+"My Account": "Il mio account",
+
+"Save changes": "Salva modifiche",
+
+"Birthday": "Compleanno",
+
+"User": "Utente",
+
+"MON": "LUN",
+
+"TUE": "MAR",
+
+"WED": "MER",
+
+"THU": "GIO",
+
+"FRI": "VEN",
+
+"SAT": "SAB",
+
+"SUN": "DOM",
+
+"Enter your skype pls": "Inserisci il tuo Skype"
+,
+"Skype is valid": "Lo Skype è valido"
+,
+"Enter your birthday pls": "Inserisci la tua data di nascita"
+,
+"birthday is valid": "Il compleanno è valido"
+,
+"Add task": "Aggiungi attività"
+,
+"To do": "Da fare"
+,
+"In Progress": "In corso"
+,
+"Done": "Fatto"
+,
+"Title": "Titolo"
+,
+"Enter text": "Inserisci testo"
+,
+"Start": "Inizio"
+,
+"End": "Fine"
+,
+"From": "Da"
+,
+"to": "a"
+,
+"add": "Aggiungi"
+,
+"edit": "Modifica"
+,
+"Cancel": "Annulla"
+,
+"Low": "Basso"
+,
+"Medium": "Medio"
+,
+"High": "Alto"
+,
+"low": "basso"
+,
+"medium": "medio"
+,
+"high": "alto"
+,
+"taskModalMsg": {
+"startTimeInPast": "Non è possibile aggiungere un'attività nel passato!",
+"endTimeWrong": "L'ora di fine non può essere inferiore all'ora di inizio!",
+"editInPast": "Non è possibile modificare un'attività passata!",
+"Field": "Campo",
+"requared": "obbligatorio!",
+"maxLength": "deve essere inferiore a 250 caratteri!",
+"priorityIsNotValid": "ha dati non validi!",
+"title": "Titolo",
+"start": "Inizio",
+"end": "Fine"
+}
+,
+"let go": "Lascia"
+,
+"focus": "passato, perché nel futuro potrebbero dare un'occhiata non solo loro!",
+,
+"confirm delete": "Sei sicuro di voler eliminare questo?",
+,
+"find": "Trova",
+,
+"home": "Home",
+,
+"Enter Task": "Inserisci un'attività",
+,
+"January": "Gennaio"
+,
+"February": "Febbraio"
+,
+"March": "Marzo"
+,
+"April": "Aprile"
+,
+"May": "Maggio"
+,
+"June": "Giugno"
+,
+"July": "Luglio"
+,
+"August": "Agosto"
+,
+"September": "Settembre"
+,
+"October": "Ottobre"
+,
+"November": "Novembre"
+,
+"December": "Dicembre"
+,
+"Are you sure to logout?": "Sei sicuro di voler uscire?"
+,
+"Cansel": "Annulla"
+,
+"Quickly": "Velocemente"
+,
+"come in": "entra"
+,
+"and write down your tasks for the day!": "e annota le tue attività per la giornata!"
+,
+"register": "registrati"
+,
+"and familiarize yourself with the application!": "e prendi confidenza con l'applicazione!"}

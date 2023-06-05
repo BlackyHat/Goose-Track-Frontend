@@ -1,6 +1,9 @@
 import styles from './CustomRadio.module.scss';
+import { useTranslation } from 'react-i18next';
 
 const CustomRadio = ({ options, value, setFieldValue }) => {
+  const { t } = useTranslation();
+
   return (
     <div className={`${styles.radioGroup}`}>
       {options.map((option, index) => (
@@ -22,7 +25,7 @@ const CustomRadio = ({ options, value, setFieldValue }) => {
               value === option.value ? styles.active : ''
             } ${styles[option.color]}`}
           />
-          {option.label}
+          {t(option.label)}
         </label>
       ))}
     </div>

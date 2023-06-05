@@ -2,9 +2,11 @@ import TasksColumn from 'components/ChoosedDay/TasksColumn/TasksColumn';
 import scss from './TasksColumnsList.module.scss';
 import { COLUMNS_OPTIONS, COLUMNS } from 'constants/columns.constans';
 import { useTasksByChoosedDay } from 'hooks/useTasksByChoosedDay';
+import { useTranslation } from 'react-i18next';
 
 const TasksColumnsList = ({ currentDay }) => {
   const { tasks } = useTasksByChoosedDay(currentDay);
+  const { t } = useTranslation();
 
   const tasksByColumns = COLUMNS.reduce((acc, column) => {
     return {
@@ -25,7 +27,7 @@ const TasksColumnsList = ({ currentDay }) => {
           <TasksColumn
             key={column}
             tasks={tasksByColumns[column]}
-            title={title}
+            title={t(title)}
             column={column}
           />
         );

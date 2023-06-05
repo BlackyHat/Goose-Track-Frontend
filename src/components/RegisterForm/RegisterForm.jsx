@@ -9,6 +9,8 @@ import { BsEyeSlashFill } from 'react-icons/bs';
 import { BsEyeFill } from 'react-icons/bs';
 import { useState } from 'react';
 import ThemeToggler from 'components/ThemeToggler/ThemeToggler';
+import { useTranslation } from 'react-i18next';
+import LangSwitcher from 'components/LangSwitcher/LangSwitcher';
 
 const initialState = {
   name: '',
@@ -18,6 +20,7 @@ const initialState = {
 
 export const RegisterForm = () => {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
 
   const [type, setType] = useState('password');
   const [icon, setIcon] = useState(<BsEyeSlashFill />);
@@ -46,8 +49,8 @@ export const RegisterForm = () => {
         <div className={scss.bgimages}></div>
         <div className={scss.bgImagesMsg}>
           <p className={scss.bgImagesText}>
-            Quickly <span className={scss.span}>register</span> and familiarize
-            yourself with the application!
+            {t('Quickly')} <span className={scss.span}>{t('register')} </span>
+            {t('and familiarize yourself with the application!')}
           </p>
         </div>
         <Formik
@@ -59,8 +62,11 @@ export const RegisterForm = () => {
           {({ errors, touched }) => (
             <Form autoComplete="off" className={scss.form}>
               <div className={scss.titleWrapper}>
-                <h1 className={scss.title}>Sing Up</h1>
-                <ThemeToggler />
+                <h1 className={scss.title}>{t('Register')}</h1>
+                <div className={scss.togglersContainer}>
+                  <LangSwitcher />
+                  <ThemeToggler />
+                </div>
               </div>
               <label
                 className={
@@ -71,12 +77,12 @@ export const RegisterForm = () => {
                     : scss.label
                 }
               >
-                <p className={scss.labelText}>Name</p>
+                <p className={scss.labelText}>{t('Username')}</p>
                 <Field
                   id="name"
                   name="name"
                   type="name"
-                  placeholder="Enter your name"
+                  placeholder={t('Enter your name')}
                   className={
                     errors.name && touched.name
                       ? scss.isInvalid
@@ -102,12 +108,12 @@ export const RegisterForm = () => {
                     : scss.label
                 }
               >
-                <p className={scss.labelText}>E-mail</p>
+                <p className={scss.labelText}>{t('Email')}</p>
                 <Field
                   id="email"
                   name="email"
                   type="email"
-                  placeholder="Enter email"
+                  placeholder={t('Enter email')}
                   className={
                     errors.email && touched.email
                       ? scss.isInvalid
@@ -133,12 +139,12 @@ export const RegisterForm = () => {
                     : scss.label
                 }
               >
-                <p className={scss.labelText}>Password</p>
+                <p className={scss.labelText}>{t('Password')}</p>
                 <Field
                   id="password"
                   name="password"
                   type={type}
-                  placeholder="Enter password"
+                  placeholder={t('Enter your password')}
                   className={
                     errors.password && touched.password
                       ? scss.isInvalid
@@ -163,14 +169,14 @@ export const RegisterForm = () => {
                 </div>
               </label>
               <button className={scss.button} type="submit">
-                Sing Up
+                {t('Registration')}
                 <FiLogIn className={scss.icon} />
               </button>
             </Form>
           )}
         </Formik>
         <Link className={scss.link} to="/login">
-          Log In
+          {t('Log In')}
         </Link>
       </div>
     </>

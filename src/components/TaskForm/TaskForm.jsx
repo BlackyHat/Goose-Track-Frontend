@@ -1,6 +1,7 @@
 import PropTypes from 'prop-types';
 import { useDispatch } from 'react-redux';
 import { addTask, updateTask } from 'redux/tasks/tasksOperations';
+import { useTranslation } from 'react-i18next';
 
 import { PRIORITY_OPTIONS } from 'constants/priority.constans';
 import { taskSchema } from './validationTasks/validationTasks';
@@ -18,6 +19,7 @@ import { useParams } from 'react-router-dom';
 
 export const TaskForm = ({ props, onClose }) => {
   const dispatch = useDispatch();
+  const { t } = useTranslation();
 
   const { currentDay: currentDate } = useParams();
 
@@ -71,12 +73,12 @@ export const TaskForm = ({ props, onClose }) => {
           return (
             <Form className={clsx(styles.form)}>
               <label htmlFor="title" className={clsx(styles.title)}>
-                Title
+                {t('Title')}
                 <Field
                   name="title"
                   id="title"
                   type="text"
-                  placeholder="Enter some text..."
+                  placeholder={t('Enter Task')}
                   className={clsx(
                     styles.input,
                     formik.errors.title && formik.touched.title
@@ -95,7 +97,7 @@ export const TaskForm = ({ props, onClose }) => {
               </label>
               <div className={styles.flex}>
                 <label htmlFor="startTime" className={clsx(styles.title)}>
-                  Start
+                  {t('taskModalMsg.start')}
                   <Field
                     name="startTime"
                     type="time"
@@ -114,7 +116,7 @@ export const TaskForm = ({ props, onClose }) => {
                   />
                 </label>
                 <label htmlFor="endTime" className={clsx(styles.title)}>
-                  End
+                  {t('taskModalMsg.end')}
                   <Field
                     name="endTime"
                     type="time"
@@ -150,13 +152,13 @@ export const TaskForm = ({ props, onClose }) => {
                       disabled={!formik.dirty || !formik.isValid}
                     >
                       <Plus className={clsx(styles.logo)} />
-                      Add
+                      {t('add')}
                     </button>
                     <button
                       className={clsx(styles.btn_cansel)}
                       onClick={onClose}
                     >
-                      Cancel
+                      {t('Cancel')}
                     </button>
                   </>
                 ) : (
@@ -166,7 +168,7 @@ export const TaskForm = ({ props, onClose }) => {
                     disabled={!formik.dirty || !formik.isValid}
                   >
                     <BsPencil className={clsx(styles.logo)} />
-                    Edit
+                    {t('Edit')}
                   </button>
                 )}
               </div>
