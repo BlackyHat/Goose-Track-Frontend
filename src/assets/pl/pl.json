@@ -132,5 +132,9 @@
 "come in": "wejdź",
 "and write down your tasks for the day!": "i zapisz swoje zadania na dzień!",
 "register": "zarejestruj się",
-"and familiarize yourself with the application!": "i zapoznaj się z aplikacją!"    
+"and familiarize yourself with the application!": "i zapoznaj się z aplikacją!",
+"404": {
+  "Look like you're lost": "Wydaje się, że się zgubiłeś/zgubiłaś",
+  "the page you are looking for not available!": "strona, której szukasz, nie jest dostępna!",
+  "Go to Home": "Przejdź do strony głównej"}
 }

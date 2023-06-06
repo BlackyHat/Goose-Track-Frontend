@@ -132,5 +132,11 @@
 "come in": "Come in",
 "and write down your tasks for the day!": "and write down your tasks for the day!",
 "register": "Register",
-"and familiarize yourself with the application!": "and familiarize yourself with the application!"
+"and familiarize yourself with the application!": "and familiarize yourself with the application!",
+"404": {
+  "Look like you're lost":"Look like you're lost",
+  "the page you are looking for not avaible!":"the page you are looking for not avaible!",
+  "Go to Home":"Go to Home"
+}
+
 }

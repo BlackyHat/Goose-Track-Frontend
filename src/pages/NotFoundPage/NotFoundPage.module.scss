@@ -37,13 +37,13 @@
   margin-right: auto;
   width: 220px;
   padding: 14px;
-  color: var(--btn-text-color);
-  background: var(--accent-background-color);
+  color: #ffffff;
+  background: var(--button-background-color);
   box-shadow: 4px 2px 16px rgba(136, 165, 191, 0.48);
   border-radius: 16px;
   font-weight: 600;
   font-size: 14px;
-  line-height: 18px;
+  line-height: 18px;  
 
   &:focus {
     background: #2b78ef;

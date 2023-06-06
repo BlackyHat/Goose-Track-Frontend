@@ -99,7 +99,8 @@
   flex-basis: 55%;
   height: 48px;
   border: none;
-  background: var(--button-background-color);
+  color: var(--btn-text-color);
+  background: var(--accent-background-color);
   border-radius: 8px;
 
   font-family: 'Inter';
@@ -108,12 +109,16 @@
   font-size: 14px;
   line-height: 18px;
   letter-spacing: -0.02em;
-  color: white;
   cursor: pointer;
   transition: box-shadow linear 350ms;
 
+  &:focus {
+    background: #2b78ef;
+    box-shadow: 4px 2px 16px rgba(136, 165, 191, 0.48);
+  }
+
   &:hover {
-    border: 2px solid var(--accent-background-color);
+    background: #2b78ef;
     box-shadow: 4px 2px 16px rgba(136, 165, 191, 0.48);
   }
 }

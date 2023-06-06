@@ -133,5 +133,9 @@
   "come in": "заходь",
   "and write down your tasks for the day!": "і запиши свої завдання на день!",
   "register": "зареєструйся",
-  "and familiarize yourself with the application!": "та ознайомитися з додатком!"
+  "and familiarize yourself with the application!": "та ознайомитися з додатком!",
+  "404": {
+    "Look like you're lost": "Схоже, що ви заблукали",
+    "the page you are looking for not available!": "Сторінку, яку ви шукаєте, немає!",
+    "Go to Home": "Перейти на головну"  }
 }

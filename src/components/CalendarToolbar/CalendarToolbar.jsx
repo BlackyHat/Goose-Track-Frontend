@@ -52,9 +52,8 @@ const CalendarToolbar = ({ period, date }) => {
           <span className={css.caledr_month_title}>
             {period
               ? `${t(currentDate.format('MMMM'))} ${currentDate.format('YYYY')}`
-              : `${currentDate.format('D')} ${t(
-                  currentDate.format('MMMM')
-                )} ${currentDate.format('YYYY')}`}
+              : `${currentDate.format('D')} ${t(currentDate.format('MMMM'))}
+               ${currentDate.format('YYYY')}`}
           </span>
         </div>
         <PeriodPaginator

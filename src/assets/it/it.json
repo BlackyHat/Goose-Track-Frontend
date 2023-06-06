@@ -129,5 +129,9 @@
     "come in": "Entra",
     "and write down your tasks for the day!": "e scrivi i tuoi compiti per il giorno!",
     "register": "registrati",
-    "and familiarize yourself with the application!": "e familiarizza con l'applicazione!"
+    "and familiarize yourself with the application!": "e familiarizza con l'applicazione!",
+      "404": {
+        "Look like you're lost": "Sembra che tu sia perso/perduta",
+        "the page you are looking for not available!": "La pagina che stai cercando non è disponibile!",
+        "Go to Home": "Vai alla pagina principale"  }
       }

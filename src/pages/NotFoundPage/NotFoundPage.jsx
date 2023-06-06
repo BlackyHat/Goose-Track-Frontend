@@ -1,7 +1,10 @@
 import { Link } from 'react-router-dom';
 import scss from './NotFoundPage.module.scss';
+import { useTranslation } from 'react-i18next';
 
 const NotFoundPage = () => {
+    const { t } = useTranslation();
+
   return (
     <section className={scss.pageBox}>
       <div className={scss.wrapper}>
@@ -9,12 +12,12 @@ const NotFoundPage = () => {
       </div>
 
       <div className={scss.infoInner}>
-        <h2 className={scss.infoTitle}>Look like you're lost</h2>
+        <h2 className={scss.infoTitle}>{t("404.Look like you're lost")}</h2>
         <p className={scss.infoMeta}>
-          the page you are looking for not avaible!
+          {t("404.the page you are looking for not avaible!")}
         </p>
-        <Link to="/" className={scss.returnButton}>
-          Go to Home
+        <Link to="/calendar" className={scss.returnButton}>
+          {t("404.Go to Home")}
         </Link>
       </div>
     </section>
