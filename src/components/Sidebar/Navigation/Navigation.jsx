@@ -59,7 +59,7 @@ const Navigation = ({ onCloseMenu }) => {
         </NavLink>
       </div>
       <button onClick={onLogout} className={classNames(css.button)}>
-        {t('Log out')}
+        {t('Log Out')}
         <LoginOutSvg />
       </button>
       {isOpen && (

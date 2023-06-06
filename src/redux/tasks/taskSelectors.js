@@ -20,19 +20,15 @@ export const selectTasksByFilter = createSelector(
   (tasks, filter) =>
     tasks.filter(task => {
       const normalizedFilter = filter.toLowerCase();
-      console.log('🚀 ~ normalizedFilter:', normalizedFilter);
-
       for (const key in task) {
         if (
           task.hasOwnProperty(key) &&
           String(task[key]).toLowerCase().includes(normalizedFilter)
         ) {
-          console.log('TRUE');
           return true;
         }
       }
 
-      console.log('FALSE');
       return false;
     })
 );

@@ -5,6 +5,7 @@ import { removeTask } from 'redux/tasks/tasksOperations';
 import { useToggle } from 'hooks/useToggle';
 import { spriteIcons } from 'images/icons';
 import { COLUMNS } from 'constants/columns.constans';
+import { Notify } from 'notiflix';
 
 import TaskModal from 'components/TaskModal/TaskModal';
 import Modal from 'components/Modal/Modal';
@@ -28,7 +29,12 @@ const TaskToolbar = ({ task }) => {
   const otherColumns = COLUMNS.filter(colmn => colmn !== column);
 
   const handleDeleteTask = async () => {
-    await dispatch(removeTask(task._id));
+    try {
+      await dispatch(removeTask(task._id));
+      Notify.success('notify.Success.Task removed');
+    } catch (error) {
+      Notify.error('notify.Error.Something gone wrong.');
+    }
   };
 
   return (

@@ -18,11 +18,11 @@
   display: flex;
   flex-direction: column;
   position: relative;
+  margin-bottom: 28px;
 }
 
 .flex {
   display: flex;
-  margin-top: 18px;
   gap: 14px;
 }
 .start {
@@ -99,7 +99,8 @@
   flex-basis: 55%;
   height: 48px;
   border: none;
-  background: var(--button-background-color);
+  color: var(--btn-text-color);
+  background: var(--accent-background-color);
   border-radius: 8px;
 
   font-family: 'Inter';
@@ -108,12 +109,16 @@
   font-size: 14px;
   line-height: 18px;
   letter-spacing: -0.02em;
-  color: white;
   cursor: pointer;
   transition: box-shadow linear 350ms;
 
+  &:focus {
+    background: #2b78ef;
+    box-shadow: 4px 2px 16px rgba(136, 165, 191, 0.48);
+  }
+
   &:hover {
-    border: 2px solid var(--accent-background-color);
+    background: #2b78ef;
     box-shadow: 4px 2px 16px rgba(136, 165, 191, 0.48);
   }
 }
@@ -190,15 +195,15 @@
   font-size: 12px;
   padding-left: 18px;
   position: absolute;
-  bottom: -24px;
-  left: 18px;
+  bottom: -16px;
+  left: 0;
 }
 .invalid_endTime {
   color: var(--task-priority-high-color);
   font-size: 12px;
   padding-left: 18px;
   position: absolute;
-  bottom: -33px;
+  bottom: -44px;
   left: 0px;
   width: 100%;
   text-align: right;

@@ -11,7 +11,6 @@ import {
 } from './user-operations';
 import { userInitialState } from './user.init-state';
 import { STATUS } from 'constants/status.constants';
-import Notiflix from 'notiflix';
 
 const handlePending = state => {
   state.status = STATUS.loading;
@@ -32,7 +31,6 @@ const userSlice = createSlice({
         state.user = payload.user;
         state.token = payload.token;
         state.isLoggedIn = true;
-        Notiflix.Notify.info('Welcome to your virtual Planing Calendar');
       })
       .addCase(authRegisterThunk.fulfilled, (state, { payload }) => {
         state.user = payload.user;

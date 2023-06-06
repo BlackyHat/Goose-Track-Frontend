@@ -1,7 +1,6 @@
 import { createAsyncThunk } from '@reduxjs/toolkit';
 import { publicApi, token } from 'http/http';
 import { setDate } from './taskSlice';
-import { Notify } from 'notiflix';
 
 export const fetchTasks = createAsyncThunk(
   'tasks/fetchAll',
@@ -37,10 +36,8 @@ export const addTask = createAsyncThunk(
   async (newTask, thunkAPI) => {
     try {
       const { data } = await publicApi.post('/tasks', { ...newTask });
-      Notify.success('Success.Task added');
       return data;
     } catch (error) {
-      Notify.error('Error.Something gone wrong.');
 
       return thunkAPI.rejectWithValue(error.message);
     }
@@ -51,12 +48,8 @@ export const removeTask = createAsyncThunk(
   async (taskId, thunkAPI) => {
     try {
       const { data } = await publicApi.delete(`/tasks/${taskId}`);
-      Notify.success('Success.Task removed');
-
       return data;
     } catch (error) {
-      Notify.error('Error.Something gone wrong.');
-
       return thunkAPI.rejectWithValue(error.message);
     }
   }
@@ -68,23 +61,10 @@ export const updateTask = createAsyncThunk(
       const { data } = await publicApi.patch(`/tasks/${taskId}`, {
         ...updatedTask,
       });
-      Notify.success('Success.Task updated.');
 
       return data;
     } catch (error) {
-      Notify.error('Error.Something gone wrong.');
       return thunkAPI.rejectWithValue(error.message);
     }
   }
 );
-
-// export const fetchTasksOnDateChange = store => next => action => {
-//   const result = next(action);
-//   if (action.type === chosedDateAction.type) {
-//     const currenChoosedMonth = moment(action.payload).format('YYYY-MM');
-//     const monthFromSate = moment(store.getState().tasks.date).format('YYYY-MM');
-//     currenChoosedMonth !== monthFromSate &&
-//       store.dispatch(changeMonth(currenChoosedMonth));
-//   }
-//   return result;
-// };

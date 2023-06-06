@@ -1,1 +1,1 @@
-export const langsToTraslate = ['ua', 'en', 'pl', 'it'];
+export const langsToTranslate = ['ua', 'en', 'pl', 'it'];

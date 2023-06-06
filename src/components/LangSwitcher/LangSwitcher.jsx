@@ -8,14 +8,14 @@ import { ReactComponent as UaIcon } from './country-icons/ua.svg';
 import { ReactComponent as GbIcon } from './country-icons/gb.svg';
 import { ReactComponent as ItIcon } from './country-icons/it.svg';
 import { ReactComponent as PlIcon } from './country-icons/pl.svg';
-import { langsToTraslate } from 'constants/langs';
+import { langsToTranslate } from 'constants/langs';
 
 const LangSwitcher = () => {
-  const { i18n } = useTranslation();
   const { isOpen, onClose, onOpen } = useToggle();
   const [popupPosition, setPopupPosition] = useState({ top: 0, left: 0 });
-
+  const { i18n } = useTranslation();
   const lang = i18n.language;
+
   const openPopup = e => {
     const rect = e.currentTarget.getBoundingClientRect();
     setPopupPosition({ top: rect.top + 13, left: rect.left - 44 });
@@ -23,6 +23,7 @@ const LangSwitcher = () => {
   };
 
   const changeLang = language => {
+    console.log(language)
     i18n.changeLanguage(language);
     onClose();
   };
@@ -53,7 +54,7 @@ const LangSwitcher = () => {
           position={popupPosition}
         >
           <ul className={scss.langBox}>
-            {langsToTraslate.map(language => (
+            {langsToTranslate.map(language => (
               <li key={language}>
                 <button
                   type="button"
