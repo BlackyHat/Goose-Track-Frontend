@@ -20,7 +20,7 @@ const UserPopup = ({ userName, onClose, handleLogout }) => {
           {t('navigation.My account')}
         </Link>
         <button className={scss.logOut} onClick={handleLogout}>
-          {t('Log out')}
+          {t('Log Out')}
           <LoginOutSvg />
         </button>
       </div>

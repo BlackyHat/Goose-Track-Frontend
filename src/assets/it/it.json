@@ -6,73 +6,39 @@
 "Sign up": "Iscriviti",
 "Canban": "Kanban"
 },
-
 "Search": "Cerca",
-
 "Password": "Password",
-
 "Login": "Accedi",
-
 "Log In": "Accedi",
-
 "Sign Up": "Iscriviti",
-
 "Email": "Email",
-
 "Email Address": "Indirizzo email",
-
 "Confirm Password": "Conferma password",
-
 "Username": "Nome utente",
-
 "City, Region": "Città, Regione",
-
 "Mobile Phone": "Telefono cellulare",
-
 "Registration": "Registrazione",
-
 "Back": "Indietro",
-
 "Don't have an account": "Non hai un account",
-
 "Register": "Registrati",
-
 "Already have an account": "Hai già un account",
-
 "Time": "Orario",
-
 "Address": "Indirizzo",
-
 "Phone": "Telefono",
-
 "Enter a valid Email": "Inserisci un indirizzo email valido",
-
 "Email is correct": "L'email è corretta",
-
 "Enter a valid Password": "Inserisci una password valida (almeno 7 caratteri)",
-
 "Password is correct": "La password è corretta",
-
 "confirmPassword is correct": "La conferma della password è corretta",
-
 "confirmPassword is not correct": "La conferma della password non corrisponde",
-
 "Enter your name pls": "Inserisci il tuo nome",
-
 "Enter your name": "Inserisci il tuo nome",
-
 "Enter your email": "Inserisci la tua email",
-
 "Enter your password": "Inserisci la tua password",
-
 "Enter your phone": "Inserisci il tuo numero di telefono",
-
 "Enter your Telegram link": "Inserisci il tuo link Telegram",
-
 "Name is valid": "Il nome è valido",
-
 "Enter your city pls": "Inserisci la tua città",
-
 "City is valid": "La città è valida",
 
 "Enter your phone pls": "Inserisci il tuo numero di telefono",

@@ -1,5 +1,5 @@
 import { Link, useNavigate } from 'react-router-dom';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, Form, Field } from 'formik';
 import { useTranslation } from 'react-i18next';
 
 import { useDispatch } from 'react-redux';
@@ -14,6 +14,7 @@ import { useState } from 'react';
 import { spriteIcons } from 'images/icons';
 import ThemeToggler from 'components/ThemeToggler/ThemeToggler';
 import LangSwitcher from 'components/LangSwitcher/LangSwitcher';
+import WithTranslateFormErrors from 'hooks/useTranslateFormErrors';
 
 const initialState = {
   email: '',
@@ -64,109 +65,115 @@ const LoginForm = () => {
         validationSchema={loginUserSchema}
         onSubmit={handleSubmit}
       >
-        {({ errors, touched, resetForm }) => (
-          <Form className={scss.form}>
-            <div className={scss.titleWrapper}>
-              <h1 className={scss.title}>{t('Log In')}</h1>
-              <div className={scss.togglersContainer}>
-                <LangSwitcher />
-                <ThemeToggler />
+        {({ errors, touched, setFieldTouched, resetForm }) => (
+          <WithTranslateFormErrors
+            errors={errors}
+            touched={touched}
+            setFieldTouched={setFieldTouched}
+          >
+            <Form className={scss.form}>
+              <div className={scss.titleWrapper}>
+                <h1 className={scss.title}>{t('Log In')}</h1>
+                <div className={scss.togglersContainer}>
+                  <LangSwitcher />
+                  <ThemeToggler />
+                </div>
               </div>
-            </div>
-            <label
-              className={
-                errors.email && touched.email
-                  ? scss.isInvalidLabel
-                  : touched.email
-                  ? scss.isValidLabel
-                  : scss.label
-              }
-            >
-              <p className={scss.labelText}>{t('Email')}</p>
-              <Field
-                id="email"
-                name="email"
-                autoComplete="off"
-                type="email"
-                placeholder={t('Enter email')}
+              <label
                 className={
                   errors.email && touched.email
-                    ? scss.isInvalid
+                    ? scss.isInvalidLabel
                     : touched.email
-                    ? scss.isValid
-                    : scss.input
+                    ? scss.isValidLabel
+                    : scss.label
                 }
-              />
-              <div className={scss.feedback}>
-                {touched.email && !errors.email ? (
-                  <div className={scss.validFeedback}>
-                    {t('Email is correct')}
-                    <svg className={scss.iconCorrect}>
-                      <use href={spriteIcons + '#icon-check'}></use>
-                    </svg>
-                  </div>
-                ) : null}
-                <ErrorMessage
+              >
+                <p className={scss.labelText}>{t('Email')}</p>
+                <Field
+                  id="email"
                   name="email"
-                  component="div"
-                  className={scss.invalidFeedback}
-                ></ErrorMessage>
-                {touched.email && errors.email ? (
-                  <svg className={scss.iconCorrect}>
-                    <use href={spriteIcons + '#icon-alert'}></use>
-                  </svg>
-                ) : null}
-              </div>
-            </label>
-            <label
-              className={
-                errors.password && touched.password
-                  ? scss.isInvalidLabel
-                  : touched.password
-                  ? scss.isValidLabel
-                  : scss.label
-              }
-            >
-              <p className={scss.labelText}>{t('Password')}</p>
-              <Field
-                id="password"
-                name="password"
-                autoComplete="off"
-                type={type}
-                placeholder={t('Enter password')}
+                  autoComplete="off"
+                  type="email"
+                  placeholder={t('Enter email')}
+                  className={
+                    errors.email && touched.email
+                      ? scss.isInvalid
+                      : touched.email
+                      ? scss.isValid
+                      : scss.input
+                  }
+                />
+                <div className={scss.feedback}>
+                  {touched.email && !errors.email ? (
+                    <div className={scss.validFeedback}>
+                      {t('Email is correct')}
+                      <svg className={scss.iconCorrect}>
+                        <use href={spriteIcons + '#icon-check'}></use>
+                      </svg>
+                    </div>
+                  ) : null}
+                  {errors.email && (
+                    <div className={scss.invalidFeedback}>
+                      {t(`errors.${errors.email}`)}
+                    </div>
+                  )}
+                  {touched.email && errors.email ? (
+                    <svg className={scss.iconCorrect}>
+                      <use href={spriteIcons + '#icon-alert'}></use>
+                    </svg>
+                  ) : null}
+                </div>
+              </label>
+              <label
                 className={
                   errors.password && touched.password
-                    ? scss.isInvalid
+                    ? scss.isInvalidLabel
                     : touched.password
-                    ? scss.isValid
-                    : scss.input
+                    ? scss.isValidLabel
+                    : scss.label
                 }
-              />
-              <button
-                className={scss.btnToggle}
-                type="button"
-                onClick={handleShowPassword}
               >
-                <div className={scss.spanIcon}>{icon}</div>
-              </button>
-              <div className={scss.feedback}>
-                {touched.password && !errors.password ? (
-                  <div className={scss.validFeedback}>
-                    {t('Password is correct')}
-                  </div>
-                ) : null}
-                <ErrorMessage
+                <p className={scss.labelText}>{t('Password')}</p>
+                <Field
+                  id="password"
                   name="password"
-                  component="div"
-                  className={scss.invalidFeedback}
-                ></ErrorMessage>
-              </div>
-            </label>
-            <button className={scss.button} type="submit">
-              {t('Log In')}
-              <FiLogIn className={scss.icon} />
-            </button>
-          </Form>
+                  autoComplete="off"
+                  type={type}
+                  placeholder={t('Enter password')}
+                  className={
+                    errors.password && touched.password
+                      ? scss.isInvalid
+                      : touched.password
+                      ? scss.isValid
+                      : scss.input
+                  }
+                />
+                <button
+                  className={scss.btnToggle}
+                  type="button"
+                  onClick={handleShowPassword}
+                >
+                  <div className={scss.spanIcon}>{icon}</div>
+                </button>
+                <div className={scss.feedback}>
+                  {touched.password && !errors.password ? (
+                    <div className={scss.validFeedback}>
+                      {t('Password is correct')}
+                    </div>
+                  ) : null}
+                  {errors.password && (
+                    <div className={scss.invalidFeedback}>
+                      {t(`errors.${errors.password}`)}
+                    </div>
+                  )}
+                </div>
+              </label>
+              <button className={scss.button} type="submit">
+                {t('Login')}
+                <FiLogIn className={scss.icon} />
+              </button>
+            </Form>
+          </WithTranslateFormErrors>
         )}
       </Formik>
       <Link className={scss.link} to="/register">

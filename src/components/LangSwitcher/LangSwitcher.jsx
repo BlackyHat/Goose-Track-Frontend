@@ -11,11 +11,12 @@ import { ReactComponent as PlIcon } from './country-icons/pl.svg';
 import { langsToTraslate } from 'constants/langs';
 
 const LangSwitcher = () => {
-  const { i18n } = useTranslation();
   const { isOpen, onClose, onOpen } = useToggle();
   const [popupPosition, setPopupPosition] = useState({ top: 0, left: 0 });
 
+  const { i18n } = useTranslation();
   const lang = i18n.language;
+
   const openPopup = e => {
     const rect = e.currentTarget.getBoundingClientRect();
     setPopupPosition({ top: rect.top + 13, left: rect.left - 44 });

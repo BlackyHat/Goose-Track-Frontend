@@ -18,7 +18,7 @@ const Logout = ({ onClose }) => {
       <ul className={scss.buttonBox}>
         <li>
           <Link to={`/welcome`} className={scss.button} onClick={handleLogout}>
-            {t('Log out')}
+            {t('Log Out')}
           </Link>
         </li>
         <li>

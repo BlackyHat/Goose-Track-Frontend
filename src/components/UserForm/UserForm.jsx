@@ -8,7 +8,7 @@ import moment from 'moment';
 import { Formik, Form, Field, ErrorMessage } from 'formik';
 import { infoUserSchema } from './validationUserInfo/validationUserInfo';
 
-import css from './accountPage.module.scss';
+import css from './UserForm.module.scss';
 import userAvatar from '../../images/icons/ph_user.svg';
 import MyDatePicker from './DatePicker/DatePicker';
 import { Notify } from 'notiflix';
@@ -21,6 +21,7 @@ const UserForm = () => {
   const userInfo = useSelector(selectorGetUser);
   const [previewImageUrl, setPreviewImageUrl] = useState(null);
   const [file, setFile] = useState(null);
+
   let initialUserInfo = {
     phone: userInfo.phone || '',
     telegram: userInfo.telegram || '',
@@ -120,7 +121,7 @@ const UserForm = () => {
                         ? css.is_invalid
                         : '')
                     }
-                    placeholder={t('User name')}
+                    placeholder={t('Username')}
                   />
                   <ErrorMessage
                     name="userName"
@@ -150,7 +151,7 @@ const UserForm = () => {
                   htmlFor="email"
                   className={`${css.username_form__label}`}
                 >
-                  {t('Email Address')}
+                  {t('Email')}
                   <Field
                     name="email"
                     type="email"
