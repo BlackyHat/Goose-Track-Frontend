@@ -182,7 +182,7 @@ export const RegisterForm = () => {
                   {t('Registration')}
                   <FiLogIn className={scss.icon} />
                 </button>
-              </Form>{' '}
+              </Form>
             </WithTranslateFormErrors>
           )}
         </Formik>

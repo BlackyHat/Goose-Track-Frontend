@@ -1,20 +1,20 @@
+import { useState } from 'react';
+import { useDispatch } from 'react-redux';
+import { authLoginThunk } from 'redux/user/user-operations';
 import { Link, useNavigate } from 'react-router-dom';
 import { Formik, Form, Field } from 'formik';
-import { useTranslation } from 'react-i18next';
-
-import { useDispatch } from 'react-redux';
-import { Notify } from 'notiflix';
-import { FiLogIn } from 'react-icons/fi';
-import { authLoginThunk } from 'redux/user/user-operations';
-import scss from './LoginForm.module.scss';
 import { loginUserSchema } from 'components/ValidationUserYup/ValidationUserYup';
-import { BsEyeSlashFill } from 'react-icons/bs';
-import { BsEyeFill } from 'react-icons/bs';
-import { useState } from 'react';
-import { spriteIcons } from 'images/icons';
+import { useTranslation } from 'react-i18next';
+import WithTranslateFormErrors from 'hooks/useTranslateFormErrors';
+
+import scss from './LoginForm.module.scss';
 import ThemeToggler from 'components/ThemeToggler/ThemeToggler';
 import LangSwitcher from 'components/LangSwitcher/LangSwitcher';
-import WithTranslateFormErrors from 'hooks/useTranslateFormErrors';
+import { Notify } from 'notiflix';
+import { FiLogIn } from 'react-icons/fi';
+import { BsEyeSlashFill } from 'react-icons/bs';
+import { BsEyeFill } from 'react-icons/bs';
+import { spriteIcons } from 'images/icons';
 
 const initialState = {
   email: '',
@@ -42,11 +42,13 @@ const LoginForm = () => {
   const handleSubmit = async (values, { resetForm }) => {
     try {
       await dispatch(authLoginThunk(values)).unwrap();
-      Notify.success("It's ok!");
+      Notify.success(t("notify.It's ok!"));
       resetForm();
       navigate(`/calendar`);
+      Notify.info(t('notify.Welcome to your virtual Planing Calendar'));
+
     } catch (error) {
-      Notify.failure('Oops! You make some mistake:-(');
+      Notify.failure(t("notify.Oops! You make some mistake:-("));
     }
   };
 

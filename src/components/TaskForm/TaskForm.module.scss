@@ -18,11 +18,11 @@
   display: flex;
   flex-direction: column;
   position: relative;
+  margin-bottom: 28px;
 }
 
 .flex {
   display: flex;
-  margin-top: 18px;
   gap: 14px;
 }
 .start {
@@ -190,15 +190,15 @@
   font-size: 12px;
   padding-left: 18px;
   position: absolute;
-  bottom: -24px;
-  left: 18px;
+  bottom: -16px;
+  left: 0;
 }
 .invalid_endTime {
   color: var(--task-priority-high-color);
   font-size: 12px;
   padding-left: 18px;
   position: absolute;
-  bottom: -33px;
+  bottom: -44px;
   left: 0px;
   width: 100%;
   text-align: right;

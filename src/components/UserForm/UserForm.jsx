@@ -5,7 +5,7 @@ import { selectorGetUser } from '../../redux/user/selectors';
 import { updateUserProfile } from '../../redux/user/user-operations';
 
 import moment from 'moment';
-import { Formik, Form, Field, ErrorMessage } from 'formik';
+import { Formik, Form, Field } from 'formik';
 import { infoUserSchema } from './validationUserInfo/validationUserInfo';
 
 import css from './UserForm.module.scss';
@@ -13,6 +13,7 @@ import userAvatar from '../../images/icons/ph_user.svg';
 import MyDatePicker from './DatePicker/DatePicker';
 import { Notify } from 'notiflix';
 import { userInfoKeys } from 'constants/userInfo.constants';
+import WithTranslateFormErrors from 'hooks/useTranslateFormErrors';
 
 const UserForm = () => {
   const { t } = useTranslation();
@@ -49,10 +50,10 @@ const UserForm = () => {
     }
     try {
       await dispatch(updateUserProfile(formData));
-      Notify.success('Success.Info updated.');
+      Notify.success(t('notify.Success.Info updated.'));
     } catch (error) {
       console.log(error);
-      Notify.error('Error.Something gone wrong.');
+      Notify.error(t('notify.Error.Something gone wrong.'));
     }
   };
 
@@ -78,8 +79,20 @@ const UserForm = () => {
         onSubmit={submiting}
         enableReinitialize={true}
       >
-        {formik => {
-          return (
+        {({
+          isSubmitting,
+          touched,
+          dirty,
+          errors,
+          values,
+          setFieldTouched,
+          setFieldValue,
+        }) => (
+          <WithTranslateFormErrors
+            errors={errors}
+            touched={touched}
+            setFieldTouched={setFieldTouched}
+          >
             <Form>
               <div className={`${css.user_page__avatar_container}`}>
                 <img
@@ -93,7 +106,7 @@ const UserForm = () => {
                     name="avatar"
                     type="file"
                     accept="image/*"
-                    onChange={e => handleAvatarChange(e, formik.setFieldValue)}
+                    onChange={e => handleAvatarChange(e, setFieldValue)}
                     style={{ display: 'none' }}
                   />
                   <label
@@ -117,17 +130,17 @@ const UserForm = () => {
                     type="text"
                     className={
                       `${css.username_form_input}` +
-                      (formik.errors.userName && formik.touched.userName
+                      (errors.userName && touched.userName
                         ? css.is_invalid
                         : '')
                     }
                     placeholder={t('Username')}
                   />
-                  <ErrorMessage
-                    name="userName"
-                    component="div"
-                    className={css.invalid_feedback}
-                  />
+                  {errors.userName && (
+                    <div className={css.invalid_feedback}>
+                      {t(`errors.${errors.userName}`)}
+                    </div>
+                  )}
                 </label>
 
                 <label
@@ -137,14 +150,14 @@ const UserForm = () => {
                   {t('Birthday')}:
                   <MyDatePicker
                     name="birthday"
-                    birthday={formik.values.birthday}
+                    birthday={values.birthday}
                     className={css.my_date_picker}
                   />
-                  <ErrorMessage
-                    name="birthday"
-                    component="div"
-                    className={css.invalid_feedback}
-                  />
+                  {errors.birthday && (
+                    <div className={css.invalid_feedback}>
+                      {t(`errors.${errors.birthday}`)}
+                    </div>
+                  )}
                 </label>
 
                 <label
@@ -157,11 +170,11 @@ const UserForm = () => {
                     type="email"
                     className={`${css.username_form_input}`}
                   />
-                  <ErrorMessage
-                    name="email"
-                    component="div"
-                    className={css.invalid_feedback}
-                  />
+                  {errors.email && (
+                    <div className={css.invalid_feedback}>
+                      {t(`errors.${errors.email}`)}
+                    </div>
+                  )}
                 </label>
                 <label
                   htmlFor="phone"
@@ -175,11 +188,11 @@ const UserForm = () => {
                     type="text"
                     placeholder={t('Enter your phone')}
                   />
-                  <ErrorMessage
-                    name="phone"
-                    component="div"
-                    className={css.invalid_feedback}
-                  />
+                  {errors.phone && (
+                    <div className={css.invalid_feedback}>
+                      {t(`errors.${errors.phone}`)}
+                    </div>
+                  )}
                 </label>
 
                 <label
@@ -194,25 +207,23 @@ const UserForm = () => {
                     type="text"
                     placeholder={t('Enter your Telegram link')}
                   />
-                  <ErrorMessage
-                    name="telegram"
-                    component="div"
-                    className={css.invalid_feedback}
-                  />
+                  {errors.telegram && (
+                    <div className={css.invalid_feedback}>
+                      {t(`errors.${errors.telegram}`)}
+                    </div>
+                  )}
                 </label>
                 <button
                   type="submit"
                   className={`${css.username_form__submit}`}
-                  disabled={
-                    formik.isSubmitting || !formik.touched || !formik.dirty
-                  }
+                  disabled={isSubmitting || !touched || !dirty}
                 >
                   {t('Save сhanges')}
                 </button>
               </div>
             </Form>
-          );
-        }}
+          </WithTranslateFormErrors>
+        )}
       </Formik>
     </section>
   );
