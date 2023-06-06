@@ -43,7 +43,7 @@
     "Error.Something gone wrong.": "Помилка.Щось пішло не так.",
     "Success.Task added": "Успішно.Таска додана.",
     "Success.Task updated.": "Успішно.Таска оновлена.",
-    "Welcome to your virtual Planing Calendar": "Вітаємо в твоєму віртуальном палнувальнику"
+    "Welcome to your virtual Planning Calendar": "Вітаємо в твоєму віртуальном палнувальнику"
   },
   "Search": "Пошук",
   "Password": "Пароль",
@@ -130,8 +130,5 @@
   "come in": "заходь",
   "and write down your tasks for the day!": "і запиши свої завдання на день!",
   "register": "зареєструйся",
-  "and familiarize yourself with the application!": "та ознайомитися з додатком!",
-  "Required": "Обов'язково для заповнення",
-  "Required!": "Обов'язково!",
-  "This is an ERROR email": "Обов'язково!"
+  "and familiarize yourself with the application!": "та ознайомитися з додатком!"
 }

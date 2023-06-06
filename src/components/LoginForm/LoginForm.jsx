@@ -38,6 +38,7 @@ const LoginForm = () => {
       setType('password');
     }
   };
+  console.log("8888",t("Quickly"))
 
   const handleSubmit = async (values, { resetForm }) => {
     try {
@@ -45,7 +46,7 @@ const LoginForm = () => {
       Notify.success(t("notify.It's ok!"));
       resetForm();
       navigate(`/calendar`);
-      Notify.info(t('notify.Welcome to your virtual Planing Calendar'));
+      Notify.info(t('notify.Welcome to your virtual Planning Calendar'));
 
     } catch (error) {
       Notify.failure(t("notify.Oops! You make some mistake:-("));
@@ -57,7 +58,7 @@ const LoginForm = () => {
       <div className={scss.bgimages}></div>
       <div className={scss.bgImagesMsg}>
         <p className={scss.bgImagesText}>
-          {t('Quickly')} <span className={scss.span}>{t('come in')} </span>
+          {t("Quickly")} <span className={scss.span}>{t('come in')} </span>
           {t('and write down your tasks for the day!')}
         </p>
       </div>
